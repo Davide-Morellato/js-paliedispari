@@ -25,9 +25,9 @@ console.log('numero utente: ', userNumber)
 
 
 // VERIFICA DI CONTROLLO prompt:
-// SE IL NUMERO INSERITO DALL'UTENTE (userNumber) E' > 5  AND (&&)
+// SE IL NUMERO INSERITO DALL'UTENTE (userNumber) E' > 5  OR (||)
 // IL NUMERO INSERITO DALL'UTENTE (userNumber) E' <= 0  AND  (&&)
-// LA SCELTA TRA PARI E DISPARI DALL'UTENTE (evenOdd) E' DIVERSA DA 'pari'  OR  (||)
+// LA SCELTA TRA PARI E DISPARI DALL'UTENTE (evenOdd) E' DIVERSA DA 'pari'  AND  (&&)
 // LA SCELTA TRA PARI E DISPARI DALL'UTENTE (evenOdd) E' DIVERSA DA 'dispari'
 
     // ALLORA PRESENTA UN ALERT ALL'UTENTE
@@ -36,9 +36,9 @@ console.log('numero utente: ', userNumber)
 // ALTRIMENTI 
     // SVOLGI LE FUNZIONI
 
-if(userNumber > 5 &&
+if(userNumber > 5 ||
     userNumber <= 0 &&
-    evenOdd !== 'pari' ||
+    evenOdd !== 'pari' &&
     evenOdd !== 'dispari'){
 
     alert('digitare correttamente la tua scelta')
@@ -47,16 +47,19 @@ if(userNumber > 5 &&
 
 } else {
     
-    // DICHIARO UNA FUNZIONE randomPc
+
+    // ESTERNAMENTE AD else DICHIARO UNA FUNZIONE randomPc
     // IN CUI CREO UNA VARIABILE randomNum PER GENERARE UN NUMERO CASUALE PER IL PC (da 1 a 5)
     
-    function randomPc(){
-    
-        const randomNum = parseInt(Math.floor(Math.random() * 5) + 1)
-    
-        return randomNum
-    
-    }
+            
+        // function randomPc(){
+            
+        //     const randomNum = parseInt(Math.floor(Math.random() * 5) + 1)
+
+        //     return randomNum
+
+        // }
+
     
     // CREO UNA VARIABILE PER INVOCARE LA FUNZIONE randomPc
     
@@ -73,23 +76,27 @@ if(userNumber > 5 &&
     
     
     
-    // DICHIARO UNA FUNZIONE isEvenOdd
-    // IN CUI CREO UNA VARIABILE result PER VERIFICARE SE LA SOMMA DEI NUMERI sum
+
+    // ESTERNAMENTE DICHIARO UNA FUNZIONE isEvenOdd CON PARAMETRO number
+    // IN CUI CREO UNA VARIABILE result PER VERIFICARE SE IL PARAMETRO number (successivamente sostituito da sum)
     // SIA PARI O DISPARI (sfrutto il modulo % 2)
     
-    function isEvenOdd(){
+                
+        // function isEvenOdd(number){
+            
+        //     const result = number % 2
+
+        //     return result
+
+        // }
+
     
-        const result = sum % 2
+    // CREO UNA VARIABILE PER INVOCARE LA FUNZIONE isEvenOdd(sum) [sostituisco il parametro (number) con sum]
     
-        return result
-    
-    }
-    
-    // CREO UNA VARIABILE PER INVOCARE LA FUNZIONE isEvenOdd()
-    
-    const rest = isEvenOdd()
+    const rest = isEvenOdd(sum)
     
     
+
     // SE IL NUMERO OTTENUTO HA RESTO STRETTAMENTE UGUALE (===) 0 (pari) AND  LA SCELTA DELL'UTENTE E' PARI
     // ALLORA STAMPA HAI VINTO
     
@@ -111,5 +118,25 @@ if(userNumber > 5 &&
     
         console.log('hai perso!')
     }
+
+}
+
+
+
+
+function randomPc(){
+    
+    const randomNum = parseInt(Math.floor(Math.random() * 5) + 1)
+
+    return randomNum
+
+}
+
+
+function isEvenOdd(number){
+    
+    const result = number % 2
+
+    return result
 
 }
